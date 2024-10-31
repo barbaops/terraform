@@ -1,3 +1,8 @@
+variable "name" {
+  description = "Prefixo para nomear a VPC, subnets e tabelas de rotas"
+  type        = string
+}
+
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
   type        = string
