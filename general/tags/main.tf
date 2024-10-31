@@ -13,8 +13,3 @@ locals {
     var.additional_tags
   )
 }
-
-output "tags" {
-  description = "Mapa de tags CMDB padrão para recursos de inventário"
-  value       = local.cmdb_tags
-}
