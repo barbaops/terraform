@@ -10,7 +10,6 @@ resource "aws_subnet" "private" {
   }
 }
 
-# Criando subnets públicas
 resource "aws_subnet" "public" {
   for_each              = { for idx, subnet in var.public_subnet_configs : idx => subnet }
   vpc_id                = var.vpc_id
@@ -23,7 +22,6 @@ resource "aws_subnet" "public" {
   }
 }
 
-# Associação da tabela de rotas após criação das subnets privadas, se habilitado
 resource "aws_route_table_association" "private_associations" {
   for_each      = var.associate_route_table ? aws_subnet.private : {}
   subnet_id     = each.value.id
